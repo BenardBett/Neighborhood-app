@@ -90,3 +90,12 @@ def authorities(request):
     authorities = Authorities.objects.filter(neighbourhood=profile.neighbourhood)
 
     return render(request,'authorities.html',{"authorities":authorities})   
+
+
+@login_required(login_url='/accounts/login/')
+def health(request):
+    current_user=request.user
+    profile=Profile.objects.get(username=current_user)
+    health = Health.objects.filter(neighbourhood=profile.neighbourhood)
+
+    return render(request,'health.html',{"health":health})     
