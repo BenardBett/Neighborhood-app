@@ -2,7 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField
+import datetime as dt
+from django.db.models import Q
 # Create your models here.
 class neighbourhood(models.Model):
     neighbourhood= models.CharField(max_length=100)
