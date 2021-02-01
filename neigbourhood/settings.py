@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myneighbour',
+    'tinymce',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +80,10 @@ WSGI_APPLICATION = 'neigbourhood.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'neighbour',
+        'USER': 'moringa',
+        'PASSWORD':'Access',
     }
 }
 
@@ -119,3 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+cloudinary.config(
+  cloud_name = "bnnnnn",
+  api_key = "128685598271748",
+  api_secret = "m4yVotUJ-0BJXMIiLXqxGb9mBi0"
+)
